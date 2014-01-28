@@ -41,15 +41,17 @@ namespace Trainer
             trainer.ExerciseUpdated -= trainer_ExerciseUpdated;
             trainer.WorkoutCompleted -= trainer_WorkoutCompleted;
 
-            WriteControlText(label1, "WORKOUT COMPLETED!");
+            WriteControlText(lblTime, "WORKOUT COMPLETED!");
         }
 
         void trainer_ExerciseUpdated(object sender, Exercise exercise)
         {
-            WriteControlText(label1, "{0}: {1:MM:ss}", 
-                exercise.Name, 
-                exercise.Duration);
+            WriteControlText(lblExercise, "{0}", exercise.Name);
+            WriteControlText(lblTime, "{0:MM:ss}", exercise.Duration);
+
             WriteControlText(label2, "Workout Duration: {0:MM:ss}", ((PersonalTrainer)sender).WorkoutDuration);
+
+            
         }
 
         void WriteControlText(Control control, string fmt, params object[] args)
@@ -62,5 +64,7 @@ namespace Trainer
 
             control.Text = String.Format(fmt, args);
         }
+
+        void 
     }
 }
