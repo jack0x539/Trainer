@@ -6,7 +6,6 @@ using System.Timers;
 
 namespace Trainer
 {
-    public delegate void ExerciseStartedDel(object sender, Exercise exercise);
     public delegate void ExerciseUpdatedDel(object sender, Exercise exercise);
     public delegate void WorkoutCompletedDel(object sender);
 
