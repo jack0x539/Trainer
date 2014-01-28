@@ -31,7 +31,6 @@ namespace Trainer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            trainer.ExerciseStarted += trainer_ExerciseUpdated;
             trainer.ExerciseUpdated += trainer_ExerciseUpdated;
             trainer.WorkoutCompleted += trainer_WorkoutCompleted;
             trainer.Begin();
@@ -39,7 +38,6 @@ namespace Trainer
 
         void trainer_WorkoutCompleted(object sender)
         {
-            trainer.ExerciseStarted -= trainer_ExerciseUpdated;
             trainer.ExerciseUpdated -= trainer_ExerciseUpdated;
             trainer.WorkoutCompleted -= trainer_WorkoutCompleted;
 

@@ -20,7 +20,6 @@ namespace Trainer
 
         Timer _timer;
 
-        public event ExerciseStartedDel ExerciseStarted;
         public event ExerciseUpdatedDel ExerciseUpdated;
         public event WorkoutCompletedDel WorkoutCompleted;
 
@@ -66,7 +65,7 @@ namespace Trainer
                 else
                 {
                     _curExercise = _exercises[_iExercise];
-                    OnExerciseStarted(_curExercise);
+                    OnExerciseUpdated(_curExercise);
                 }
             }
         }
@@ -78,13 +77,7 @@ namespace Trainer
             _curExercise = _exercises[_iExercise];
             _timer.Start();
 
-            OnExerciseStarted(_curExercise);
-        }
-
-        private void OnExerciseStarted(Exercise exercise)
-        {
-            if (ExerciseStarted != null)
-                ExerciseStarted(this, exercise);
+            OnExerciseUpdated(_curExercise);
         }
 
         private void OnExerciseUpdated(Exercise exercise)
